@@ -1,0 +1,3 @@
+- name: "{{ component }}"
+  ansible.builtin.debug:
+    msg: "Configuring component {{ component }}"

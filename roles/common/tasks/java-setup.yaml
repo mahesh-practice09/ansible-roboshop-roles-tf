@@ -1,0 +1,26 @@
+- name: Install maven
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  loop:
+  - maven
+  - mysql
+- name: PiP install PyMySQL
+  ansible.builtin.pip:
+    name: "{{ item }}"
+    executable: pip3.9
+  loop:
+  - PyMySQL
+  - cryptography
+
+- name: Install mvn dependencies
+  ansible.builtin.command: mvn clean package
+  args:
+    chdir: /app
+- name: rename shipping-1.0.jar to shipping.jar
+  ansible.builtin.command: mv target/shipping-1.0.jar shipping.jar
+  args:
+    chdir: /app
+- name: Reload systemd daemon
+  ansible.builtin.systemd_service:
+    daemon_reload: true
