@@ -2,6 +2,11 @@
   ansible.builtin.package:
     name: mysql-server
     state: present
+- name: Install botocore and boto3
+  ansible.builtin.pip:
+    name:
+    - boto3
+    - botocore
 - name: Start mysql service
   ansible.builtin.service:
     name: mysqld
