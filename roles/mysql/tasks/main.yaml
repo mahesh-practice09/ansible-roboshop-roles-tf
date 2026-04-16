@@ -5,9 +5,11 @@
 - name: Install botocore and boto3
   ansible.builtin.pip:
     name: "{{ item }}"
+    executable: pip3
   loop:
   - boto3
   - botocore
+  - PyMySQL
 - name: Start mysql service
   ansible.builtin.service:
     name: mysqld
