@@ -2,11 +2,11 @@ ansible_user: ec2-user
 ansible_password: DevOps321
 
 MONGODB_HOST: roboshop-{{ env }}-mongodb.daws88s.shop
-REDIS_HOST: roboshop-redis-{{ env }}.daws88s.shop
-CART_HOST: roboshop-cart-{{ env }}.daws88s.shop
-CATALOGUE_HOST: roboshop-catalogue-{{ env }}.daws88s.shop
-MYSQL_HOST: roboshop-mysql-{{ env }}.daws88s.shop
-RABBITMQ_HOST: roboshop-rabbitmq-{{ env }}.daws88s.shop
-USER_HOST: roboshop-user-{{ env }}.daws88s.shop
-PAYMENT_HOST: roboshop-payment-{{ env }}.daws88s.shop
-SHIPPING_HOST: roboshop-shipping-{{ env }}.daws88s.shop
+REDIS_HOST: roboshop-{{ env }}-redis.daws88s.shop
+CART_HOST: roboshop-{{ env }}-cart.daws88s.shop
+CATALOGUE_HOST: roboshop-{{ env }}-catalogue.daws88s.shop
+MYSQL_HOST: roboshop-{{ env }}-mysql.daws88s.shop
+RABBITMQ_HOST: roboshop-{{ env }}-rabbitmq.daws88s.shop
+USER_HOST: roboshop-{{ env }}-user.daws88s.shop
+PAYMENT_HOST: roboshop-{{ env }}-payment.daws88s.shop
+SHIPPING_HOST: roboshop-{{ env }}-shipping.daws88s.shop
