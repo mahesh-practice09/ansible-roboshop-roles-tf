@@ -6,7 +6,16 @@
 - name: java setup
   ansible.builtin.import_role:
     name: common
-    tasks_from: java-setup.yaml
+    tasks_from: java-setup.
+
+- name: Install botocore and boto3
+  ansible.builtin.pip:
+    name: "{{ item }}"
+    executable: pip3.9
+  loop:
+  - boto3
+  - botocore
+  - PyMySQL
 
 - name: Authenticatio and Import required databases
   community.mysql.mysql_db:
