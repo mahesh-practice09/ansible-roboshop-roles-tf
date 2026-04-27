@@ -6,7 +6,7 @@
 - name: java setup
   ansible.builtin.import_role:
     name: common
-    tasks_from: java-setup.
+    tasks_from: java-setup.yaml
 
 - name: Install botocore and boto3
   ansible.builtin.pip:
