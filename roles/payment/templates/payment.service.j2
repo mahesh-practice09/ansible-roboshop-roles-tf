@@ -1,25 +1,22 @@
+[Unit]
+Description=Payment Service
+
 [Service]
 User=root
 WorkingDirectory=/app
-Environment=CART_HOST={{ CART_HOST }}
+// highlight-start
+Environment=CART_HOST="{{ CART_HOST }}"
 Environment=CART_PORT=80
-Environment=USER_HOST={{ USER_HOST }}
+Environment=USER_HOST="{{ USER_HOST }}"
 Environment=USER_PORT=80
-Environment=AMQP_HOST={{ RABBITMQ_HOST }}
+Environment=AMQP_HOST="{{ RABBITMQ_HOST }}"
+// highlight-end
 Environment=AMQP_USER=roboshop
 Environment=AMQP_PASS=roboshop123
 
 ExecStart=/usr/local/bin/uwsgi --ini payment.ini
-
-# REMOVE ExecStop line completely
-# ExecStop=/bin/kill -9 $MAINPID
-
-# Graceful stop & restart
-KillSignal=SIGTERM
-TimeoutStopSec=30
-Restart=always
-RestartSec=5
-
+ExecStop=/bin/kill -9 $MAINPID
 SyslogIdentifier=payment
 
-
+[Install]
+WantedBy=multi-user.target
